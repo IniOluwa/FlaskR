@@ -1,5 +1,5 @@
 # Import Dependencies
-import sqlite
+import sqlite3
 import click
 from flask import current_app, g
 
@@ -17,7 +17,7 @@ def get_db():
     return g.db
     
 # Close Database
-def close_db():
+def close_db(e=None):
     db = g.pop('db', None)
     
     if db is not None:
@@ -25,9 +25,9 @@ def close_db():
     
 # Initialize Database
 def init_db():
-    db = get_db
+    db = get_db()
     
-    with current_app.open_resource as app_db:
+    with current_app.open_resource('schema.sql') as app_db:
         db.executescript(app_db.read().decode('utf8'))
         
 # Database Initialization Command / Clear Existing Data and Create New Tables
