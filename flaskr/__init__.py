@@ -3,6 +3,10 @@ import os
 from flask import Flask
 from os import environ
 
+# Import Modules
+from . import db
+
+
 # Create & Configure Flask App
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -28,6 +32,9 @@ def create_app(test_config=None):
     @app.route('/hello')
     def hello():
         return "Hello, World!"
+        
+    # Register Database With Application
+    db.init_app(app)
         
     # Return Created Application
     return app
