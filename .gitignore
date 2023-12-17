@@ -1,12 +1,20 @@
+# Python Compiled Files
 *.pyc
 __pycache__/
 
+# Instance Directory
 instance/
 
+# Testing
 .pytest_cache/
 .coverage
 htmlcov/
 
+# Operations
 dist/
 build/
 *.egg-info/
+
+# Environments
+.env
+.flaskenv
