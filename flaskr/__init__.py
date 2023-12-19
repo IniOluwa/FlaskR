@@ -4,7 +4,7 @@ from flask import Flask
 from os import environ
 
 # Import Modules
-from . import db
+from . import db, auth
 
 
 # Create & Configure Flask App
@@ -35,6 +35,9 @@ def create_app(test_config=None):
         
     # Register Database With Application
     db.init_app(app)
+    
+    # Register Authentication Blueprint
+    app.register_blueprint(auth.bp)
         
     # Return Created Application
     return app
