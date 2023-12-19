@@ -93,3 +93,18 @@ def logout():
     
     # Return to Index
     return redirect(url_for('index'))
+    
+# Login Required Decorator Function
+def login_required():
+    # Wrap View
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        # Check & Handle User Availability
+        if g.user is None:
+            return redirect(url_for('auth.login'))
+        
+        # Return View
+        return view(**kwargs)
+    
+    # Return Wrapped View Function
+    return wrapped_view
