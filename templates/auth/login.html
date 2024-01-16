@@ -1,0 +1,15 @@
+{% extends base.html %}
+
+{% block header %}
+  <h1>{% block title %} FlaskR - Login {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form class="" action="index.html" method="post">
+    <label for="Username">Username</label>
+    <input type="text" name="username" id="username" required>
+    <label for="Password">Password</label>
+    <input type="password" name="password" id="password" required>
+    <input type="submit" value="Login">
+  </form>
+{% endblock %}

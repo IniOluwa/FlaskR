@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% end block %} - FlaskR</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <header class="header">
+      <nav>
+        <h1>FlaskR</h1>
+        <ul>
+          {% if g.user %}
+            <li><span>g.user['username']</span></li>
+            <li><a href="{{ url_for(auth.logout) }}">Log Out</a></li>
+          {% else %}
+            <li><a href="{{ url_for(auth.register) }}">Register</a></li>
+            <li><a href="{{ url_for(auth.login) }}">Login</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+      <!-- FlaskR Header Block -->
+      {% block header %}
+      {% end block %}
+    </header>
+    
+    <main class="content">
+      <!-- FlaskR Flash Messages Block -->
+      {% for message in get_flashed_messages() %}
+        <div class="message">
+          {{ message }}
+        </div>
+      {% endfor %}
+      
+      <!-- FlaskR Content Block -->
+      {% block content %}
+      {% end block %}
+    </main>
+    
+    <footer class="footer">
+    </footer>
+  </body>
+</html>
