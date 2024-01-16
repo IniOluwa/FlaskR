@@ -1,0 +1,15 @@
+/* FlaskR Styles */
+body {
+  display: block;
+  padding: 100px;
+}
+
+header li {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.auth-form input {
+  display: block;
+}
