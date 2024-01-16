@@ -4,9 +4,7 @@ body {
   padding: 100px;
 }
 
-header li {
-  display: flex;
-  justify-content: center;
+header ul {
   text-decoration: none;
 }
 
