@@ -1,6 +1,6 @@
 # Import Dependencies
 import functools
-from Flask import Blueprint, flash, g, render_template, request, session, url_for
+from flask import Blueprint, flash, g, render_template, request, session, url_for
 from werkzeug.security import check_password_hash, generate_password_hash
 from flaskr.db import get_db
 
@@ -77,7 +77,8 @@ def login():
 @bp.before_app_request
 def load_logged_in_user():
     # Get User
-    user_id = session['user_id']
+    # user_id = session['user_id']
+    user_id = session.get('user_id')
     
     # Check User
     if user_id is None:
