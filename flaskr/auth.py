@@ -71,7 +71,7 @@ def login():
         flash(error)
         
     # Return Page Otherwise
-    return render_template('auth/login')
+    return render_template('auth/login.html')
 
 # Before Request
 @bp.before_app_request
